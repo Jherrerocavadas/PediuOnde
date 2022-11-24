@@ -3,16 +3,16 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 {/*---------- <Componentes personalizados> ----------*/}
 import HeaderLogo from "../Components/Header";
-import POButtons from "../Components/POButtons";
+import POButtons from "../Components/POButton";
 import POText from "../Components/POText";
-
+import {FooterClient} from "../Components/Footer"
 
 
 
 export default function Login() {
 
   return (
-    <View>
+    <View style={styles.container}>
     <Text> LOGIN BALA </Text>
       <View>
         <Image style={{
@@ -24,6 +24,17 @@ export default function Login() {
         }}
         />
       </View>
+      <FooterClient/>
     </View>
   );
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+});

@@ -1,11 +1,10 @@
 import React, {useState, useContext} from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity,TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 {/*---------- <Componentes personalizados> ----------*/}
 import HeaderLogo from "../Components/Header";
-import POButtons from "../Components/POButtons";
+import {POButton}  from "../Components/POButton";
 import POTextInput from "../Components/POTextInput";
-import POText from "../Components/POText";
 import {POTextLink} from "../Components/POText";
 
 
@@ -17,15 +16,18 @@ export default function Cadastro() {
   const [senha,setSenha] = useState("");
   const [repetirSenha,setRepetirSenha] = useState("");
 
-
-
-
   return (
     <View style={styles.container}>
       <HeaderLogo/>
 
       <POTextInput
-        style={styles.input}
+        setter={setNome}
+        valor={nome}
+        placeholderText="Nome"
+        tipoInput="text"/>
+
+
+      <POTextInput
         setter={setEmail}
         valor={email}
         placeholderText="Email"
@@ -34,7 +36,14 @@ export default function Cadastro() {
       />
 
       <POTextInput
-        style={styles.input}
+        setter={setCpf}
+        valor={cpf}
+        placeholderText="CPF"
+        tipoInput="numeric"
+        maxInput = {11}
+      />
+
+      <POTextInput
         setter={setSenha}
         valor={senha}
         placeholderText="Senha"
@@ -42,17 +51,22 @@ export default function Cadastro() {
         isTextoSeguro={true}
       />
 
+      <POTextInput
+        setter={setRepetirSenha}
+        valor={repetirSenha}
+        placeholderText="Repita a senha"
+        tipoInput="text"
+        isTextoSeguro={true}
+      />
 
-      <POButtons cor="orange" texto ="Login"/>
-      <POTextLink texto="Não tem uma conta?" link="Clique aqui!"/>
-      </View>
+      <POButton styleBtn={"orange"} text={"Login"}/>
+      <POTextLink texto="Quer se cadastrar como vendedor?" link="Clique aqui!"/>
+    </View>
 
   );
 
 
 }
-
-
 
 const styles = StyleSheet.create({
   container: {

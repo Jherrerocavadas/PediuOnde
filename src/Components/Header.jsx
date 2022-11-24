@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Text, Dimensions} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
 export default function HeaderLogo() {
@@ -9,17 +9,6 @@ export default function HeaderLogo() {
       <StatusBar style="auto" backgroundColor="orange"/>
       <Image style={styles.logo} source={require('../../assets/icon.png')}
       />
-      {/*
-      <TouchableOpacity>
-        <View style={styles.userIcon}>
-          <Image style={{
-            width:80,
-            height:80,
-            borderRadius:40,
-          }} source={require('../../assets/icon.png')}
-          />
-        </View>
-      </TouchableOpacity>*/}
     </View>
   )
 }
@@ -39,9 +28,10 @@ export function HeaderChat({empresa, assunto}) {
   )
 }
 
+const {windowWd, windowHt} = Dimensions.get('screen')
+
 const styles = StyleSheet.create({
   logoView: {
-  //  backgroundColor: 'lightgray',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -61,9 +51,11 @@ const styles = StyleSheet.create({
   },
 
   headerChat:{//mudar esses valores para responsividade depois
-    justifyContent:"center",
-    justifySelf:"flex-start",
-    alignItems:"center",
+    width: windowWd,
+    paddingHorizontal: 20,
+    paddingVertical:10,
+    justifyContent:"space-between",
+    alignItems:'center',
 
     flexDirection:"row",
 
@@ -73,12 +65,12 @@ const styles = StyleSheet.create({
 
   headerChatText:{
     color: "white",
-    fontSize:30,
+    fontSize:20,
   },
 
   headerChatSubText:{
     color: "white",
-    fontSize:20,
+    fontSize:15,
   },
 
 });

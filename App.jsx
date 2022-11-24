@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
 {/*---------- <Componentes personalizados> ----------*/}
 import Header from "./src/Components/Header";
-import POButtons from "./src/Components/POButtons";
+import POButtons from "./src/Components/POButton";
 import POText from "./src/Components/POText";
 
 

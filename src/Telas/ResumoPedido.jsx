@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 {/*---------- <Componentes personalizados> ----------*/}
 import HeaderLogo from "../Components/Header";
-import POButtons from "../Components/POButtons";
+import POButtons from "../Components/POButton";
 import POText from "../Components/POText";
 
 
