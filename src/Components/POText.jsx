@@ -16,13 +16,14 @@ export function POTextLink({texto, link}) {
       position: "relative",
       bottom:10,
       flexDirection: "row",
+      marginVertical:20
     },
     textStyle:{
       fontSize: 15,
     },
 
     textLink: {
-      color:"orange",
+      color:"#FF881D",
     },
   };
   return (

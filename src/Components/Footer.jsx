@@ -115,8 +115,7 @@ const styles = StyleSheet.create({
     backgroundColor:"white",
     paddingLeft:15,
     paddingRight:15,
-    alignContent:"center",
-    justifyContent:"center",
+    justifyContent:"space-between",
     elevation:5,
     shadowColor: "black",
   },
@@ -143,12 +142,14 @@ const styles = StyleSheet.create({
 
   },
   writeMsgBox:{
+    width:'70%',
     justifyItens:"flex-end",
   },
 
   iconsContainer:{
+    width:'30%',
     flexDirection:"row",
-    justifyContent:"flex-end",
+    justifyContent:"space-around",
     alignItems:"center",
 
 

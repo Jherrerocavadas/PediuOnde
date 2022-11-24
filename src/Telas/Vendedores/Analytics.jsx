@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 {/*---------- <Componentes personalizados> ----------*/}
-import HeaderLogo from "../Components/Header";
-import POButtons from "../Components/POButtons";
-import POText from "../Components/POText";
-import {FooterClient} from "../Components/Footer"
+import HeaderLogo from "../../Components/Header";
+import POButtons from "../../Components/POButton";
+import POText from "../../Components/POText";
+import {FooterVendor} from "../../Components/Footer";
 
 
 
@@ -13,7 +13,8 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-    <Text> LOGIN BALA </Text>
+    <Text> Analytics </Text>
+
       <View>
         <Image style={{
           width:80,
@@ -24,7 +25,7 @@ export default function Login() {
         }}
         />
       </View>
-      <FooterClient/>
+      <FooterVendor/>
     </View>
   );
 }
