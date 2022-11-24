@@ -1,14 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-
-
-{/*---------- <Componentes personalizados> ----------*/}
-import Header from "./src/Components/Header";
-import POButtons from "./src/Components/POButton";
-import POText from "./src/Components/POText";
-
 
 {/*---------- <Telas> ----------*/}
 import Inicial from "./src/Telas/Inicial";
@@ -20,7 +12,6 @@ import PagProduto from "./src/Telas/PagProduto";
 import ResumoPedido from "./src/Telas/ResumoPedido";
 import AddProduto from "./src/Telas/Vendedores/AddProduto";
 import Analytics from "./src/Telas/Vendedores/Analytics";
-
 
 const Tab = createBottomTabNavigator();
 
@@ -39,8 +30,6 @@ function MyTabs() {
     </Tab.Navigator>
   )
 }
-
-
 
 export default function App() {
 
