@@ -12,13 +12,15 @@ import PagProduto from "./src/Telas/PagProduto";
 import ResumoPedido from "./src/Telas/ResumoPedido";
 import AddProduto from "./src/Telas/Vendedores/AddProduto";
 import Analytics from "./src/Telas/Vendedores/Analytics";
+import Home from "./src/Telas/Home";
+
 
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return(
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Home" component ={Inicial}/>
+      <Tab.Screen name="TelaInicial" component ={Inicial}/>
       <Tab.Screen name="Login" component ={Login}/>
       <Tab.Screen name="Cadastro" component ={Cadastro}/>
       <Tab.Screen name="Chat" component ={Chat}/>
@@ -27,6 +29,7 @@ function MyTabs() {
       <Tab.Screen name="ResumoPedido" component ={ResumoPedido}/>
       <Tab.Screen name="AnalyticsVendor" component ={Analytics}/>
       <Tab.Screen name="AdicionarProduto" component ={AddProduto}/>
+      <Tab.Screen name='Home' component={Home}/>
     </Tab.Navigator>
   )
 }

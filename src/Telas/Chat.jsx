@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground} from 
 import {HeaderLogo, HeaderChat} from "../Components/Header";
 import POButtons from "../Components/POButton";
 import POText from "../Components/POText";
-import {YourMessages, OtherMessages, VendedorMessages} from "../Components/POMessages";
+import {YourMessages, VendedorMessages} from "../Components/POMessages";
 import {FooterChat} from "../Components/Footer";
 import SafeArea from "../Components/SafeArea";
 
@@ -14,7 +14,6 @@ export default function Chat() {
 const empresa = "Bolos da Meire" //Teste
 const assunto = "Referente ao Bolo de Casamento" //Teste
   return (
-    <>
     <SafeArea>
       <HeaderChat empresa={empresa} assunto={assunto}/>
       <View style={styles.container}>
@@ -31,8 +30,6 @@ const assunto = "Referente ao Bolo de Casamento" //Teste
       </View>
       <FooterChat/>
     </SafeArea>
-
-    </>
 
   );
 }

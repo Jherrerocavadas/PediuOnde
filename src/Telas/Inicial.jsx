@@ -10,8 +10,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <HeaderLogo/>
-      <POButton styleBtn={'orange'} text={"Cadastre-se"}/>
-      <POButton styleBtn={'white'} text={"Login"}/>
+      <View style={{height:120, justifyContent:'space-between'}}>
+        <POButton styleBtn={'orange'} text={"Cadastre-se"}/>
+        <POButton styleBtn={'white'} text={"Login"}/>        
+      </View>
+
       
       <POTextLink texto="É um vendedor?" link="Clique Aqui!"/>
     </View>
