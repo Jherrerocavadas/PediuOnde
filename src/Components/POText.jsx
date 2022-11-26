@@ -1,11 +1,29 @@
 import {Text, View, TouchableOpacity} from 'react-native';
+import { useFonts } from 'expo-font';
 
+export function POText({
+    weight='Regular',
+    size=20,
+    textColor='black',
+    children
+    }) {
 
-export function POText({texto}) {
+    const [fontsLoaded] = useFonts({
+      PoppinsLight: require('../../assets/fonts/Poppins-Light.ttf'),
+      PoppinsRegular: require('../../assets/fonts/Poppins-Regular.ttf'),
+      PoppinsSemiBold: require('../../assets/fonts/Poppins-SemiBold.ttf'),
+      PoppinsBold: require('../../assets/fonts/Poppins-Medium.ttf'),
+      PoppinsBlack: require('../../assets/fonts/Poppins-Bold.ttf'),
+    })
+
+    const styleText = {
+      fontFamily:`Poppins${weight}`, 
+      fontSize:size, 
+      color:textColor
+    }
+  
   return (
-      <View>
-        <Text style={{color:"white",}}> {texto} </Text>
-      </View>
+    <Text style={styleText}>{children}</Text>
   );
 }
 
@@ -26,6 +44,7 @@ export function POTextLink({texto, link}) {
       color:"#FF881D",
     },
   };
+
   return (
       <View style={styles.container}>
       <Text style={styles.textStyle}>{texto} </Text>

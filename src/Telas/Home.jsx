@@ -3,7 +3,7 @@ import { View, Text, Image } from 'react-native'
 import Categories from '../Components/home/Categories'
 import HorizontalScroll from '../Components/HorizontalScroll'
 import { POButton } from '../Components/POButton'
-import ProductContainer from '../Components/ProductContainer'
+import {ProductContainer} from '../Components/ProductContainer'
 import SafeArea from '../Components/SafeArea'
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -11,8 +11,6 @@ export default function Home(){
 
     return(
         <SafeArea>
-            <View style={{paddingHorizontal:20, overflow:'visible'}}>
-
                 <View style={{height:100, justifyContent:'center', alignItems:'center', backgroundColor:'white'}}>
                     <Text style={{fontFamily:'PoppinsSemiBold', fontSize:20, marginBottom:-20, marginTop:15}}>Carapicuiba, São Paulo</Text>
                     <MaterialIcons name="arrow-drop-down" size={50} color="#FF881D" />
@@ -22,14 +20,14 @@ export default function Home(){
                         marginVertical:5
                     }}>
                     <HorizontalScroll scrollTitle={'Categorias'}>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
-                    <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
+                        <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
                         <Categories SaaS={'https://www.nigiloc.com/images/image-not-found.png'} texto={'Bolos'}/>
                     </HorizontalScroll>                
                 </View>
@@ -37,23 +35,24 @@ export default function Home(){
                 <View style={{marginVertical:10}}>
                     <HorizontalScroll scrollTitle={'Destaques'}>
                         <ProductContainer imageUrl={'https://www.nigiloc.com/images/image-not-found.png'} 
-                                        Title={'Not Title'} 
-                                        Description={'Not description'} />
+                                          Title={'Not Title'} 
+                                          Description={'Not description'} />
                         <ProductContainer imageUrl={'https://www.nigiloc.com/images/image-not-found.png'} 
-                                        Title={'Not Title'} 
-                                        Description={'Not description'} />
+                                          Title={'Not Title'} 
+                                          Description={'Not description'}
+                                          Encomenda={true} />
                         <ProductContainer imageUrl={'https://www.nigiloc.com/images/image-not-found.png'} 
-                                        Title={'Not Title'} 
-                                        Description={'Not description'} />
+                                          Title={'Not Title'} 
+                                          Description={'Not description'} />
                     </HorizontalScroll>                    
                 </View>
-
+                <View style={{paddingHorizontal:20, overflow:'visible'}}>
                 <View style={{marginVertical:10}}>
                     <Text style={{fontFamily:'PoppinsBold', fontSize:18}}>Para Quando?</Text>
                     <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:5}}>
-                        <POButton styleBtn={'white'} text={'Pedir Agora'} BtnWidth={180} BtnHeight={55}/>
+                        <POButton styleBtn={'white'} text={'Pedir Agora'} BtnWidth={170} BtnHeight={50} fontSize={18}/>
                         <View style={{width:20}}></View> 
-                        <POButton styleBtn={'white'} text={'Encomendar'} BtnWidth={180} BtnHeight={55}/> 
+                        <POButton styleBtn={'white'} text={'Encomendar'} BtnWidth={170} BtnHeight={50} fontSize={18}/> 
                     </View>                    
                 </View>
 
@@ -74,8 +73,7 @@ export default function Home(){
 
                         <View style={{flexDirection:'row'}}>
                             <MaterialIcons name="star-rate" size={25} color="#FF881D" />
-                            <Text style={{color:'#FF881D', fontSize:13, fontFamily:'PoppinsRegular', marginTop:4}}>4,7</Text>
-                            
+                            <Text style={{color:'#FF881D', fontSize:13, fontFamily:'PoppinsRegular', marginTop:4, marginRight:4}}>4,7</Text>
                         </View>
 
                     </View>

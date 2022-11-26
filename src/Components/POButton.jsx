@@ -1,26 +1,43 @@
 import React from "react";
-import {View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet } from 'react-native';
 
-export function POButton({styleBtn, text, BtnWidth, BtnHeight}) {
+export function POButton({
+  styleBtn, 
+  text, 
+  BtnWidth=180, 
+  BtnHeight=55, 
+  fontSize=20,
+  shadow=true }){
+
+    const shadowBtn = {
+      elevation: 5,
+      shadowColor: 'black'
+    }
   
-  if(typeof BtnWidth != "number"){
-    BtnWidth = 350
-  }
-
-  if(typeof BtnHeight != "number"){
-    BtnHeight = 50
-  }
-
-  const styledBtn = StyleSheet.create({
-    height:BtnHeight,
-    width: BtnWidth,
-    borderRadius: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
-    shadowColor: 'black',
-    color: 'black'
+  if(shadow) {
+    var styledBtn = StyleSheet.create({
+      height:BtnHeight,
+      width: BtnWidth,
+      borderRadius: 30,
+      alignItems: "center",
+      justifyContent: "center",
+      color: 'black',
+      backgroundColor:'white',
+      ...shadowBtn
+    })
+  } else{
+    var styledBtn = StyleSheet.create({
+      height:BtnHeight,
+      width: BtnWidth,
+      borderRadius: 30,
+      alignItems: "center",
+      justifyContent: "center",
+      color: 'black',
+      backgroundColor:'white',
   })
+  }
+
+
 
   const orangeBtn = {
     ...styledBtn,
@@ -29,12 +46,12 @@ export function POButton({styleBtn, text, BtnWidth, BtnHeight}) {
 
   const whiteBtn = {
     ...styledBtn,
-    backgroundColor:'#fff',
+    backgroundColor:'white',
     borderWidth:2,
     borderColor:'#FF881D'
   }
   const fontStyle = StyleSheet.create({
-    fontSize:20,
+    fontSize:fontSize,
     color:'black',
     fontFamily:'PoppinsRegular',
     marginTop:3
@@ -42,19 +59,15 @@ export function POButton({styleBtn, text, BtnWidth, BtnHeight}) {
 
   if (styleBtn === 'white'){
     return (
-      <TouchableOpacity activeOpacity={.5}>
-        <View style={whiteBtn}>
+        <View style={{...whiteBtn}}>
           <Text style={fontStyle}>{text}</Text>
         </View>
-      </TouchableOpacity>
     );
   }
 
   return (
-    <TouchableOpacity activeOpacity={.5}>
       <View style={orangeBtn}>
-        <Text style={{ fontSize:20, color:'white', fontFamily:'PoppinsRegular', marginTop:5}}>{text}</Text>
+        <Text style={{ fontSize:fontSize, color:'white', fontFamily:'PoppinsRegular', marginTop:5}}>{text}</Text>
       </View>
-    </TouchableOpacity>
   );
 }
