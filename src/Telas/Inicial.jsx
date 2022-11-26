@@ -11,8 +11,8 @@ export default function App() {
     <View style={styles.container}>
       <HeaderLogo/>
       <View style={{height:120, justifyContent:'space-between'}}>
-        <POButton styleBtn={'orange'} text={"Cadastre-se"}/>
-        <POButton styleBtn={'white'} text={"Login"}/>        
+        <POButton styleBtn={'orange'} text={"Cadastre-se"} BtnHeight={50} BtnWidth={350}/>
+        <POButton styleBtn={'white'} text={"Login"} BtnHeight={50} BtnWidth={350}/>        
       </View>
 
       

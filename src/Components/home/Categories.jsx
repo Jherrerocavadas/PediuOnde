@@ -16,19 +16,19 @@ export default function Categories({SaaS, texto}){
 
     const viewStyles = {
         backgroundColor:'#d1d1d1', 
-        width:80, 
-        height:80, 
+        width:70, 
+        height:70, 
         borderRadius:100, 
         overflow:'hidden', 
         borderColor:'#FF881D', 
         borderWidth:2, 
-        marginRight:10
+        marginLeft:10
     }
 
     return(
 
         <View style={{alignItems:'center'}}>
-                <View style={viewStyles}>
+                <View style={{...viewStyles, translateX:'10'}}>
                     <Image source={{uri:SaaS}} 
                         style={{flex:1, width:null, height:null, resizeMode:'cover'}}
                     />
