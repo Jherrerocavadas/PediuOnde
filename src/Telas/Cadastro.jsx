@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 {/*---------- <Componentes personalizados> ----------*/}
 import HeaderLogo from "../Components/Header";
 import {POButton}  from "../Components/POButton";
-import POTextInput from "../Components/POTextInput";
+import { POInputCadastro } from "../Components/POTextInput";
 import {POTextLink} from "../Components/POText";
 
 
@@ -20,14 +20,14 @@ export default function Cadastro() {
     <View style={styles.container}>
       <HeaderLogo/>
 
-      <POTextInput
+      <POInputCadastro
         setter={setNome}
         valor={nome}
         placeholderText="Nome"
         tipoInput="text"/>
 
 
-      <POTextInput
+      <POInputCadastro
         setter={setEmail}
         valor={email}
         placeholderText="Email"
@@ -35,7 +35,7 @@ export default function Cadastro() {
 
       />
 
-      <POTextInput
+      <POInputCadastro
         setter={setCpf}
         valor={cpf}
         placeholderText="CPF"
@@ -43,7 +43,7 @@ export default function Cadastro() {
         maxInput = {11}
       />
 
-      <POTextInput
+      <POInputCadastro
         setter={setSenha}
         valor={senha}
         placeholderText="Senha"
@@ -51,7 +51,7 @@ export default function Cadastro() {
         isTextoSeguro={true}
       />
 
-      <POTextInput
+      <POInputCadastro
         setter={setRepetirSenha}
         valor={repetirSenha}
         placeholderText="Repita a senha"

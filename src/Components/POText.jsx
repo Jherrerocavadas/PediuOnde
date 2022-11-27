@@ -5,6 +5,7 @@ export function POText({
     weight='Regular',
     size=20,
     textColor='black',
+    heightLine='',
     children
     }) {
 
@@ -16,10 +17,19 @@ export function POText({
       PoppinsBlack: require('../../assets/fonts/Poppins-Bold.ttf'),
     })
 
+    let line = {}
+
+    if(heightLine != '') {
+      line = {
+        lineHeight:heightLine
+      }
+    }
+
     const styleText = {
       fontFamily:`Poppins${weight}`, 
       fontSize:size, 
-      color:textColor
+      color:textColor,
+      ...line
     }
   
   return (
@@ -34,7 +44,7 @@ export function POTextLink({texto, link}) {
       position: "relative",
       bottom:10,
       flexDirection: "row",
-      marginVertical:20
+      marginVertical:20,
     },
     textStyle:{
       fontSize: 15,

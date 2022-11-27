@@ -1,8 +1,9 @@
 import React from "react";
 import {View, TextInput } from 'react-native';
+import { POText } from "./POText";
 
 
-export default function POTextInput(
+export function POInputCadastro(
     {valor, setter, placeholderText = "", tipoInput, maxInput, icone, posIcone, isTextoSeguro=false}
   ) {
     const input = {
@@ -48,4 +49,23 @@ export default function POTextInput(
       //Colocar esquema para alternar a máscara de senha
     />
   );
+}
+
+export function POInputProduct({title, placeholderInput='Digite aqui', moreLines=false, numLines=1, heightInput=50, borderRadiusInput=50, alignCenter='center'}){
+
+  return(
+    <>
+      <POText size={18} weight={'Bold'}>{title}</POText>
+      <View>
+        <TextInput style={{width:'100%', color:'black',paddingVertical:10, paddingHorizontal:20, height:heightInput, borderWidth:2, borderColor:'#FF881D', borderRadius:borderRadiusInput}} 
+            placeholder={placeholderInput}
+            multiline = {moreLines}
+            numberOfLines={numLines}
+            keyboardType={'default'}
+            textAlignVertical={alignCenter}
+            />
+
+      </View>
+    </>
+  )
 }

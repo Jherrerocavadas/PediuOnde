@@ -14,7 +14,9 @@ import ResumoPedido from "./src/Telas/ResumoPedido";
 import AddProduto from "./src/Telas/Vendedores/AddProduto";
 import Analytics from "./src/Telas/Vendedores/Analytics";
 import Home from "./src/Telas/Home";
+import Entrega from "./src/Telas/Entrega";
 import Produto from "./src/Telas/PagProduto"
+import ProdutoEncomenda from "./src/Telas/PagProdutoEncomenda"
 
 
 const Tab = createBottomTabNavigator();
@@ -22,6 +24,9 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return(
     <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Screen name="Entrega" component ={Entrega}/>
+      <Tab.Screen name="ResumoPedido" component ={ResumoPedido}/>
+      <Tab.Screen name="PagProdutoEncomenda" component ={ProdutoEncomenda}/>
       <Tab.Screen name='Histórico' component={Historico}/>
       <Tab.Screen name="PagProduto" component ={Produto}/>
       <Tab.Screen name="TelaInicial" component ={Inicial}/>
@@ -30,7 +35,6 @@ function MyTabs() {
       <Tab.Screen name="Chat" component ={Chat}/>
       <Tab.Screen name="Loja" component ={PagLoja}/>
       <Tab.Screen name="Pagamento" component ={PagPagamento}/>
-      <Tab.Screen name="ResumoPedido" component ={ResumoPedido}/>
       <Tab.Screen name="AnalyticsVendor" component ={Analytics}/>
       <Tab.Screen name="AdicionarProduto" component ={AddProduto}/>
       <Tab.Screen name='Home' component={Home}/>

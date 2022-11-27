@@ -4,7 +4,7 @@ import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 {/*---------- <Componentes personalizados> ----------*/}
 import HeaderLogo from "../Components/Header";
 import { POButton } from "../Components/POButton";
-import POTextInput from "../Components/POTextInput";
+import {POInputProduct, POInputCadastro} from "../Components/POTextInput";
 import { POTextLink } from "../Components/POText";
 
 
@@ -20,7 +20,7 @@ export default function Login() {
     <View style={ styles.container }>
       <HeaderLogo/>
 
-      <POTextInput
+      <POInputCadastro
         setter={ setEmail }
         valor={ email }
         placeholderText="Email"
@@ -28,7 +28,7 @@ export default function Login() {
 
       />
 
-      <POTextInput
+      <POInputCadastro
         setter={ setSenha }
         valor={ senha }
         placeholderText="Senha"
