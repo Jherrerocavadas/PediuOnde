@@ -18,7 +18,7 @@ export default function Avaliacoes({autor, descricao, avaliacao}){
                 <View style={{flexDirection:'row'}}>
                     <Text style={{color:'#FF881D', fontSize:13, fontFamily:'PoppinsRegular', marginTop:1, marginRight:4}}>{avaliacao}</Text>
                     {stars}
-                </View>   
+                </View>
             </View>
             <View style={{justifyContent:'flex-start'}}>
                 <POText size={14}>{descricao}</POText>   

@@ -6,10 +6,12 @@ import HeaderLogo from "../Components/Header";
 import {POButton}  from "../Components/POButton";
 import { POInputCadastro } from "../Components/POTextInput";
 import {POTextLink} from "../Components/POText";
+import { useNavigation } from "@react-navigation/native";
 
 
 
 export default function Cadastro() {
+  const navigation = useNavigation()
   const [nome, setNome] = useState("");
   const [email,setEmail] = useState("");
   const [cpf,setCpf] = useState("");
@@ -59,8 +61,14 @@ export default function Cadastro() {
         isTextoSeguro={true}
       />
 
-      <POButton styleBtn={"orange"} text={"Login"}/>
+      <TouchableOpacity  style={{
+        marginVertical:15, width:'100%', alignItems:'center', justifyContent:'center'}} 
+        onPress={()=>{ navigation.navigate('Login', {emailLogin:email, senhaLogin:senha}) }}>
+        <POButton BtnHeight={50} BtnWidth={'80%'} styleBtn={"orange"} text={"Login"}/>
+      </TouchableOpacity>
+
       <POTextLink texto="Quer se cadastrar como vendedor?" link="Clique aqui!"/>
+
     </View>
 
   );
@@ -74,5 +82,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal:20
   },
 });

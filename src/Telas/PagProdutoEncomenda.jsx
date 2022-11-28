@@ -10,10 +10,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Avaliacoes from '../Components/Avaliacoes';
 import OpcoesHorizontais from '../Components/OpcoesHorizontais';
 import { POInputProduct } from '../Components/POTextInput';
-
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from 'react-native';
+import { POButton } from '../Components/POButton';
 
 export default function PagProdutoEncomenda(){
 
+const navigation = useNavigation()
     return(
         
         <SafeArea>
@@ -63,7 +66,17 @@ export default function PagProdutoEncomenda(){
                     numLines={4}/>
             </View>
             </ScrollView>
-
+            <TouchableOpacity onPress={() =>{ navigation.navigate('ResumoPedido') }}>
+                <View style={{flexDirection:'row', position:'absolute', bottom:'0%', height:80, width:'100%', alignItems:'center', justifyContent:'space-between', paddingHorizontal:20, backgroundColor:'white'}}>
+                    <View>
+                        <POText size={18} weight={'Bold'}>Total do Pedido:</POText>
+                        <View style={{marginTop:-10}}>
+                            <POText size={20} weight={'Black'} textColor='#FF881D'>R$0,00</POText>
+                        </View>
+                    </View>
+                    <POButton BtnHeight={50} BtnWidth={170} text={'Encomendar'}/>
+                </View>
+            </TouchableOpacity>
             </SafeArea>
     )}
 

@@ -8,7 +8,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import { FontAwesome5 } from '@expo/vector-icons';
-
+import { YourMessages } from "./POMessages";
 
 export function FooterClient() {
   return (
@@ -58,26 +58,32 @@ export function FooterVendor() {
   );
 };
 
-export function FooterChat() {
+export function FooterChat({functionSetState, variableSetState}) {
   const[texto, setTexto] = useState("")
   return(
-    <View style={styles.msgBoxContainer}>
-      <TextInput
-      style={styles.writeMsgBox}
-        onChangeText={setTexto}
-        value={texto}
-        placeholder= "Escreva uma mensagem"
-        keyboardType="text"
-      />
-      <View style={styles.iconsContainer}>
-        <TouchableOpacity>
-          <Feather name="paperclip" size={30} color="orange" />
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <MaterialCommunityIcons name="send-circle" size={48} color="orange" />
-        </TouchableOpacity>
-
+    <View style={{paddingHorizontal:10}}>
+      <View style={styles.msgBoxContainer}>
+        <TextInput
+        style={styles.writeMsgBox}
+          onChangeText={setTexto}
+          value={texto}
+          placeholder= "Escreva uma mensagem"
+          keyboardType="text"
+        />
+        <View style={styles.iconsContainer}>
+          <TouchableOpacity>
+            <Feather name="paperclip" size={30} color="#FF881D" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>{
+              functionSetState( (arr)=>[...variableSetState, 
+              <YourMessages texto={texto}/>] )
+            
+              setTexto('')
+              console.log(functionSetState)
+          }}>
+            <MaterialCommunityIcons name="send-circle" size={48} color="#FF881D" />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
@@ -131,13 +137,13 @@ const styles = StyleSheet.create({
 
 //Tem que acertar esses estilos legalzinho ainda
   msgBoxContainer:{
-    width:400,
-    margin:10,
-    paddingLeft:10,
+    width:'100%',
+    paddingLeft:15,
     flexDirection:"row",
     backgroundColor:"white",
-    borderRadius:20,
-    borderColor:"orange",
+    borderRadius:50,
+    borderWidth:2,
+    borderColor:"#FF881D",
 
 
   },

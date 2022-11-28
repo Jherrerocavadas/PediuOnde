@@ -11,14 +11,15 @@ import {POText} from "../Components/POText";
 import SafeArea from "../Components/SafeArea";
 import { MaterialIcons } from '@expo/vector-icons';
 import BackBtn from "../Components/BackBtn";
-
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function ResumoPedido() {
+const navigation = useNavigation()
 
   return (
     <SafeArea>
-      <BackBtn/>
+        <BackBtn  nav={navigation} destiny={'PagProduto'}/>
       <ScrollView>
 
         <View style={{height:100, justifyContent:'center', alignItems:'center'}}>
@@ -107,8 +108,9 @@ export default function ResumoPedido() {
 
       <View style={{paddingHorizontal:20, backgroundColor:'white', height:80, justifyContent:'center',
         shadowColor:'black'}}>
-        <POButton text={'Finalizar Pagamento'} shadow={false} BtnWidth={'100%'}/>
-
+        <TouchableOpacity onPress={()=>{ navigation.navigate('Entrega') }}>
+          <POButton text={'Finalizar Pagamento'} shadow={false} BtnWidth={'100%'}/>
+        </TouchableOpacity>
       </View>
     </SafeArea>
     

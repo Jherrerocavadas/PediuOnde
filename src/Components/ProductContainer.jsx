@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { Text, View, Image } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const styleEncomenda = StyleSheet.create({
     width:85,
@@ -17,7 +18,7 @@ const styleEncomenda = StyleSheet.create({
     borderColor:'#FF881D'
 })
 
-export function ProductContainer({imageUrl, Title, Description='', Encomenda=false}){
+export function ProductContainer({imageUrl, Title, Description='', Encomenda=false, navigaation} ){
 
     if (Description.length > 40) Description = Description.slice(0, 40) + '...'
 
@@ -45,7 +46,7 @@ export function ProductContainer({imageUrl, Title, Description='', Encomenda=fal
     }
 
     return(
-        <>
+        <TouchableOpacity  onPress={ ()=>{ navigaation } }>
         <View style={containerStyle}>
             <View style={containerImg}>
                 {Encomenda ?                 
@@ -62,7 +63,7 @@ export function ProductContainer({imageUrl, Title, Description='', Encomenda=fal
                 <Text style={{color:'white', fontSize:12, fontFamily:'PoppinsRegular'}}>{Description}</Text>
             </View>
         </View>
-        </>
+        </TouchableOpacity>
     )
 }
 

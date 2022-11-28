@@ -6,7 +6,7 @@ export function POText({
     size=20,
     textColor='black',
     heightLine='',
-    children
+    children,
     }) {
 
     const [fontsLoaded] = useFonts({
@@ -37,7 +37,9 @@ export function POText({
   );
 }
 
-export function POTextLink({texto, link}) {
+export function POTextLink({texto, link, 
+  navigation,
+  destiny}) {
   const styles = {
     container:
     {
@@ -58,7 +60,7 @@ export function POTextLink({texto, link}) {
   return (
       <View style={styles.container}>
       <Text style={styles.textStyle}>{texto} </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>{ navigation.navigate(destiny) }}>
           <Text style={[styles.textStyle, styles.textLink]}>{link}</Text>
       </TouchableOpacity>
       </View>
