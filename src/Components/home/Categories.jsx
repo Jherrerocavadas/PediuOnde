@@ -1,7 +1,6 @@
 import React from 'react'
 import {Text, View, Image} from 'react-native'
 import { useFonts } from 'expo-font'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default function Categories({SaaS, texto}){
 
@@ -27,13 +26,13 @@ export default function Categories({SaaS, texto}){
 
     return(
 
-        <View style={{alignItems:'center'}}>
-                <View style={{...viewStyles, translateX:'10'}}>
+        <View style={{width:100, alignItems:'center'}}>
+                <View style={{...viewStyles}}>
                     <Image source={{uri:SaaS}} 
                         style={{flex:1, width:null, height:null, resizeMode:'cover'}}
                     />
                 </View>
-            <Text style={{fontSize:16, color:'black', marginRight:10, fontFamily:'PoppinsRegular'}}>{texto}</Text>
+            <Text style={{fontSize:16, color:'black',marginLeft:10, fontFamily:'PoppinsRegular'}}>{texto}</Text>
         </View>
 
     )

@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   userIcon: {
     height:90,
     width:90,
-    backgroundColor:"orange",
+    backgroundColor:"#FF881D",
     borderRadius:45,
     alignItems: "center",
     justifyContent: "center",
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
     flexDirection:"row",
 
-    backgroundColor: "orange",
+    backgroundColor: "#FF881D",
 
   },
 

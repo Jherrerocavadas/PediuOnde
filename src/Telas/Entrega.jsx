@@ -4,14 +4,16 @@ import SafeArea from "../Components/SafeArea";
 import * as Location from 'expo-location'
 import { POText } from "../Components/POText";
 import CircularImg from "../Components/CircularImg";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
 import { POButton } from "../Components/POButton";
 import BackBtn from "../Components/BackBtn";
 import { ScrollView } from "react-native-gesture-handler";
-
+import { useNavigation } from "@react-navigation/native";
 
 export default function Entrega(){
+    
+    const navigation = useNavigation()
     const [location, setLocation] = useState(null);
   
     useEffect(() => {
@@ -37,7 +39,9 @@ export default function Entrega(){
 
     return(
         <SafeArea>
-            <BackBtn/>
+            <TouchableOpacity onPress={()=>{ navigation.navigate('ResumoPedido') }}>
+                <BackBtn/>
+            </TouchableOpacity>
             <ScrollView>
             <View style={{width:'100%', paddingHorizontal:20}}>
                 <View style={{height:100, justifyContent:'center', alignItems:'center'}}>
@@ -101,7 +105,9 @@ export default function Entrega(){
                 </View>
                 <View style={{marginBottom:20}}>
                     <POText size={18} weight={'Bold'}>Precisa falar com a loja?</POText>
-                    <POButton text={'Falar com a loja'} styleBtn={'orange'} BtnWidth={'100%'} shadow={false} />
+                    <TouchableOpacity onPress={()=>{ navigation.navigate('Chat') }}>
+                        <POButton text={'Falar com a loja'} styleBtn={'orange'} BtnWidth={'100%'} shadow={false} />
+                    </TouchableOpacity>
                 </View>
             </View>
             </ScrollView>

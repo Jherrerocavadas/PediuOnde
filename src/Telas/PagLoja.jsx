@@ -12,10 +12,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 import HorizontalScroll from "../Components/HorizontalScroll";
 import { ProductContainer, ProductContainerDetailed } from "../Components/ProductContainer";
 import BackBtn from "../Components/BackBtn";
+import { useNavigation } from "@react-navigation/native";
 
+export default function PagLoja() {
 
-export default function Login() {
-
+  const navigation = useNavigation()
   const [fontsLoaded] = useFonts({
     PoppinsLight: require('../../assets/fonts/Poppins-Light.ttf'),
     PoppinsRegular: require('../../assets/fonts/Poppins-Regular.ttf'),
