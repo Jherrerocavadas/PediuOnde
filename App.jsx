@@ -24,6 +24,7 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return(
     <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Screen name="AnalyticsVendor" component ={Analytics}/>
       <Tab.Screen name="Entrega" component ={Entrega}/>
       <Tab.Screen name="ResumoPedido" component ={ResumoPedido}/>
       <Tab.Screen name="PagProdutoEncomenda" component ={ProdutoEncomenda}/>
@@ -35,7 +36,6 @@ function MyTabs() {
       <Tab.Screen name="Chat" component ={Chat}/>
       <Tab.Screen name="Loja" component ={PagLoja}/>
       <Tab.Screen name="Pagamento" component ={PagPagamento}/>
-      <Tab.Screen name="AnalyticsVendor" component ={Analytics}/>
       <Tab.Screen name="AdicionarProduto" component ={AddProduto}/>
       <Tab.Screen name='Home' component={Home}/>
     </Tab.Navigator>
