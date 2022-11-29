@@ -1,20 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Image, Text, TouchableOpacity } from 'react-native'
 import BackBtn from '../Components/BackBtn'
 import SafeArea from '../Components/SafeArea'
 import { MaterialIcons } from '@expo/vector-icons';
 import HorizontalScroll from "../Components/HorizontalScroll";
-import { ProductContainer, ProductContainerDetailed } from "../Components/ProductContainer";
 import { POText } from '../Components/POText';
 import { ScrollView } from 'react-native-gesture-handler';
 import Avaliacoes from '../Components/Avaliacoes';
 import { POButton } from '../Components/POButton';
 import { useNavigation } from "@react-navigation/native";
+import { POInputProduct } from '../Components/POTextInput';
+
+function moreOne(setterQ, setterV, quant){
+    setterQ(quant + 1) 
+    setterV(9.90 * quant)
+
+}
 
 
 export default function PagProduto(){
+    const [quantidade, setQuantidade] = useState(1)
+    const navigation = useNavigation()
+    const [valor, setValor] = useState(9.90)
 
-const navigation = useNavigation()
+
     return(
         <SafeArea>
             <BackBtn  nav={navigation} destiny={'Inicio'}/>
@@ -42,7 +51,7 @@ const navigation = useNavigation()
                 </View>
                 
                 <View style={{width:'100%', paddingHorizontal:20, marginTop:-10}}>
-                    <POText weight='Black' textColor='#FF881D' size={24}>R$9,90</POText>
+                    <POText weight='Black' textColor='#FF881D' size={24}>R${valor.toFixed(2)}</POText>
                     <View style={{borderBottomWidth:2, borderColor:'#FF881D'}}/>
                 </View>
 
@@ -83,17 +92,34 @@ const navigation = useNavigation()
                 </View>
             </ScrollView>
 
-            <TouchableOpacity onPress={() =>{ navigation.navigate('ResumoPedido') }}>
+            
                 <View style={{flexDirection:'row', position:'absolute', bottom:'0%', height:80, width:'100%', alignItems:'center', justifyContent:'space-between', paddingHorizontal:20, backgroundColor:'white'}}>
                     <View>
-                        <POText size={18} weight={'Bold'}>Total do Pedido:</POText>
-                        <View style={{marginTop:-10}}>
-                            <POText size={20} weight={'Black'} textColor='#FF881D'>R$0,00</POText>
+                        <POText size={18} weight={'Bold'}>Quantidade:</POText>
+                        <View style={{marginTop:-5, flexDirection:'row', width:100, height:45, justifyContent:'space-between', alignItems:'center'}}>
+                            
+                            <TouchableOpacity onPress={ ()=>{ 
+                                if (quantidade > 0){
+                                    setQuantidade(quantidade - 1); 
+                                    setValor(9.90 * quantidade) }
+
+                                } }>
+                                <POText size={24} weight={'Black'} textColor='#FF881D'>-</POText>
+                            </TouchableOpacity>
+
+                                <View style={{ width:50, height:40, borderWidth:2, borderColor:'#FF881D', alignItems:'center',borderRadius:10, justifyContent:'center', paddingTop:3 }}>
+                                    <POText>{quantidade}</POText>
+                                </View>
+
+                            <TouchableOpacity onPress={ ()=>{moreOne(setQuantidade, setValor, quantidade)} } >
+                                <POText size={24} weight={'Black'} textColor='#FF881D'>+</POText>
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    <POButton BtnHeight={50} BtnWidth={170} text={'Encomendar'}/>
+                    <TouchableOpacity onPress={() =>{ navigation.navigate('ResumoPedido') }}>
+                        <POButton BtnHeight={50} BtnWidth={180} fontSize={16} text={'Adicionar a Sacola'}/>
+                    </TouchableOpacity>
                 </View>
-            </TouchableOpacity>
 
         </SafeArea>
     )

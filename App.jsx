@@ -71,7 +71,7 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer style={{backgroundColor:'black'}} initialRouteName="Home" >    
+    <NavigationContainer style={{backgroundColor:'black'}}>    
       <Tab.Navigator screenOptions={
         { 
           tabBarStyle:[{
@@ -90,8 +90,8 @@ export default function App() {
             }
             
          }}>
-        <Tab.Screen options={historyStyleLabel} name='Histórico' component={Historico}/>
         <Tab.Screen options={homeStyleLabel}  name="Inicio" component ={HomeStackScreen} />
+        <Tab.Screen options={historyStyleLabel} name='Histórico' component={Historico}/>
         <Tab.Screen options={accountStyleLabel} name="Conta" component ={LoginStackScreen}/>
 
       </Tab.Navigator>

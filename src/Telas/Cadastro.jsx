@@ -21,6 +21,8 @@ export default function Cadastro() {
   return (
     <View style={styles.container}>
       <HeaderLogo/>
+      <View style={{width:'100%', paddingHorizontal:20}}>
+
 
       <POInputCadastro
         setter={setNome}
@@ -68,7 +70,7 @@ export default function Cadastro() {
       </TouchableOpacity>
 
       <POTextLink texto="Quer se cadastrar como vendedor?" link="Clique aqui!"/>
-
+      </View>
     </View>
 
   );

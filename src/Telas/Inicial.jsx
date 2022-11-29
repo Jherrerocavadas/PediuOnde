@@ -10,9 +10,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <HeaderLogo/>
-      <View style={{height:120, justifyContent:'space-between'}}>
-        <POButton styleBtn={'orange'} text={"Cadastre-se"} BtnHeight={50} BtnWidth={350}/>
-        <POButton styleBtn={'white'} text={"Login"} BtnHeight={50} BtnWidth={350}/>        
+      <View style={{height:120, justifyContent:'space-between', width:'100%', paddingHorizontal:20}}>
+        <POButton styleBtn={'orange'} text={"Cadastre-se"} BtnHeight={50} BtnWidth={'40%'}/>
+        <POButton styleBtn={'white'} text={"Login"} BtnHeight={50} BtnWidth={'40%'}/>        
       </View>
 
       

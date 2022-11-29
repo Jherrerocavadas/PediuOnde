@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PediuOnde?",
-    "slug": "PediuOnde?",
+    "slug": "pediuonde",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,16 +18,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "n"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.vieira_arts.pediuonde"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e5943d01-ac89-4bf6-8303-61f9faaab2c2"
+      }
     }
   }
 }
