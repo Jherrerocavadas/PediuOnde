@@ -51,19 +51,35 @@ export function POInputCadastro(
   );
 }
 
-export function POInputProduct({title, placeholderInput='Digite aqui', moreLines=false, numLines=1, heightInput=50, borderRadiusInput=50, alignCenter='center'}){
+export function POInputProduct({
+  title, 
+  placeholderInput='Digite aqui', 
+  moreLines=false, 
+  numLines=1,
+  setter,
+  widthInput='100%',
+  heightInput=50, 
+  valor='',
+  padHorizontal=20,
+  padVertical=10,
+  type='default',
+  borderRadiusInput=50,
+  alignHorizontal='auto',
+  alignVertical='center'}){
 
   return(
     <>
       <POText size={18} weight={'Bold'}>{title}</POText>
       <View>
-        <TextInput style={{width:'100%', color:'black',paddingVertical:10, paddingHorizontal:20, height:heightInput, borderWidth:2, borderColor:'#FF881D', borderRadius:borderRadiusInput}} 
+        <TextInput style={{width:widthInput, color:'black',paddingVertical:padVertical, paddingHorizontal:padHorizontal, height:heightInput, borderWidth:2, borderColor:'#FF881D', borderRadius:borderRadiusInput}} 
             placeholder={placeholderInput}
             multiline = {moreLines}
             numberOfLines={numLines}
-            keyboardType={'default'}
-            textAlignVertical={alignCenter}
-            />
+            keyboardType={type}
+            textAlign={alignHorizontal}
+            textAlignVertical={alignVertical}
+            onChangeText={setter}
+            value={valor}/>
 
       </View>
     </>

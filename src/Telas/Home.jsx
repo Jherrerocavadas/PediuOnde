@@ -98,17 +98,16 @@ export default function Home() {
                 <POButton
                   styleBtn={"white"}
                   text={"Pedir Agora"}
-                  BtnWidth={170}
+                  BtnWidth={'35%'}
                   BtnHeight={50}
-                  fontSize={18}
+                  fontSize={14}
                 />
                 <View style={{ width: 20 }}></View>
                 <POButton
-                  styleBtn={"white"}
                   text={"Encomendar"}
-                  BtnWidth={170}
+                  BtnWidth={'35%'}
                   BtnHeight={50}
-                  fontSize={18}
+                  fontSize={14}
                 />
               </View>
             </View>
