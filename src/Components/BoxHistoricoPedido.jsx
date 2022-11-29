@@ -133,10 +133,10 @@ export default function BoxHistoricoCompras({fotoVendedor, nomeVendedor, numPedi
                     </View>
 
                     <View style={containerDescPedido}>
-                        <View style={{height:100, aspectRatio:1/1, overflow:'hidden', marginRight:10}}>
+                        <View style={{height:100, aspectRatio:1/1, overflow:'hidden', marginRight:10, alignItems:'center', justifyContent:'center'}}>
                             <Image 
                                 source={{uri:fotoPedido}} 
-                                style={imageStyle}/>                    
+                                style={{height:90, width:90, borderRadius:10}}/>                    
                         </View>
                         <View style={{width:300}}>
                             <POText size={14}>{descPedido}</POText>

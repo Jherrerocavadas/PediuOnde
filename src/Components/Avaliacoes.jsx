@@ -20,7 +20,7 @@ export default function Avaliacoes({autor, descricao, avaliacao}){
                     {stars}
                 </View>
             </View>
-            <View style={{justifyContent:'flex-start'}}>
+            <View style={{justifyContent:'flex-start', width:'100%'}}>
                 <POText size={14}>{descricao}</POText>   
             </View>
                           

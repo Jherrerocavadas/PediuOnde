@@ -11,17 +11,25 @@ import { POButton } from '../Components/POButton';
 import { useNavigation } from "@react-navigation/native";
 import { POInputProduct } from '../Components/POTextInput';
 
-function moreOne(setterQ, setterV, quant){
-    setterQ(quant + 1) 
-    setterV(9.90 * quant)
-
-}
 
 
 export default function PagProduto(){
     const [quantidade, setQuantidade] = useState(1)
     const navigation = useNavigation()
     const [valor, setValor] = useState(9.90)
+
+
+    function moreOne(){
+        setValor(9.90 * quantidade)
+        setQuantidade(quantidade + 1) 
+        if(quantidade == 1){
+            setValor(9.90)
+        }
+        if(quantidade == 2){
+            setValor(19.80)
+        }
+
+    }
 
 
     return(
@@ -85,10 +93,9 @@ export default function PagProduto(){
                         <MaterialIcons name="star-rate" size={23} color="#FF881D" />
                         <Text style={{color:'#FF881D', fontSize:16, fontFamily:'PoppinsRegular', marginTop:7, marginRight:4}}>4,4</Text>
                     </View>
-                    <Avaliacoes autor={'Toninho'} descricao={'Bolo gelado, onde já se viu algo assim? Paia d++++ hein dona meire, decepcionado >:('} avaliacao={2}></Avaliacoes>
-                    <Avaliacoes autor={'Toninho'} descricao={'Bolo gelado, onde já se viu algo assim? Paia d++++ hein dona meire, decepcionado >:('} avaliacao={2}></Avaliacoes>
-                    <Avaliacoes autor={'Toninho'} descricao={'Bolo gelado, onde já se viu algo assim? Paia d++++ hein dona meire, decepcionado >:('} avaliacao={2}></Avaliacoes>
-                    <Avaliacoes autor={'Toninho'} descricao={'Bolo gelado, onde já se viu algo assim? Paia d++++ hein dona meire, decepcionado >:('} avaliacao={2}></Avaliacoes>
+                    <Avaliacoes autor={'Toninho'} descricao={'Gostoso.mas veio com.pouco recheio...'} avaliacao={3}></Avaliacoes>
+                    <Avaliacoes autor={'Marcos'} descricao={'Muito Gostoso!'} avaliacao={5}></Avaliacoes>
+                    <Avaliacoes autor={'Joice'} descricao={'Um ótimo bolo, parabéns migaaa'} avaliacao={5}></Avaliacoes>
                 </View>
             </ScrollView>
 
@@ -111,7 +118,15 @@ export default function PagProduto(){
                                     <POText>{quantidade}</POText>
                                 </View>
 
-                            <TouchableOpacity onPress={ ()=>{moreOne(setQuantidade, setValor, quantidade)} } >
+                            <TouchableOpacity onPress={ ()=>{
+                                if(quantidade == 1){
+                                    setValor(9.90)
+                                }
+                                if(quantidade == 2){
+                                    setValor(19.90)
+                                }
+                                moreOne()
+                                } } >
                                 <POText size={24} weight={'Black'} textColor='#FF881D'>+</POText>
                             </TouchableOpacity>
                         </View>

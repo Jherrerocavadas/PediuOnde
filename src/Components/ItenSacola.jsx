@@ -14,7 +14,7 @@ export default function ItenSacola({
             
             <View style={{flexDirection:'row'}}>
                 <View style={{marginTop:5, marginRight:15}}>
-                    <CircularImg size={40} border={false}/>
+                    <CircularImg size={40} border={false} imgUrl={imgUrl}/>
                 </View>
 
                 <View>
