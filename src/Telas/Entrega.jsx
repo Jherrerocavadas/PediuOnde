@@ -39,9 +39,7 @@ export default function Entrega(){
 
     return(
         <SafeArea>
-            <TouchableOpacity onPress={()=>{ navigation.navigate('ResumoPedido') }}>
-                <BackBtn/>
-            </TouchableOpacity>
+            <BackBtn nav={navigation} destiny={'PagProduto'}/>
             <ScrollView>
             <View style={{width:'100%', paddingHorizontal:20}}>
                 <View style={{height:100, justifyContent:'center', alignItems:'center'}}>

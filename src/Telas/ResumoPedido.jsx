@@ -31,7 +31,7 @@ const navigation = useNavigation()
           <POText size={16}>Resumo do pedido:</POText>
           
           <View style={{flexDirection:'row', alignItems:'center', height:90, borderWidth:2, borderColor:'#FF881D', paddingHorizontal:13, borderRadius:10}}>
-            <CircularImg size={60} border={false}/>
+            <CircularImg size={60} border={false} imgUrl={'https://joliz.com.br/dicas/wp-content/uploads/2022/02/pexels-brent-keane-1702373-scaled.jpg'}/>
 
             <View style={{marginLeft:13, marginTop:2}}>
               <POText size={20} weight="Bold">Bolos da Meire</POText>
@@ -40,8 +40,9 @@ const navigation = useNavigation()
 
           <View style={{marginVertical:20}}>
             <ItenSacola 
-              nomeProduto={'Bolo de Pote'} 
-              descricaoPedido={'1x - Chocolate\n2x - Leite Ninho\n1x - Maracujá'}/>            
+              nomeProduto={'Bolo de Cenoura'} 
+              descricaoPedido={'Pedaço (300g)'}
+              imgUrl={'https://assets.unileversolutions.com/recipes-v2/67405.jpg'}/>            
           </View>
 
           <View>
@@ -49,12 +50,12 @@ const navigation = useNavigation()
             
             <View style={{flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
               <POText size={16} textColor={'#5e5e5e'}>Subtotal:</POText>
-              <POText size={16} textColor={'#5e5e5e'}>R$ 50,00</POText>
+              <POText size={16} textColor={'#5e5e5e'}>R$ 9,90</POText>
             </View>
 
             <View style={{flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
               <POText size={16} textColor={'#5e5e5e'}>Taxa de entrega:</POText>
-              <POText size={16} textColor={'#5e5e5e'}>R$ 5,50</POText>
+              <POText size={16} textColor={'#5e5e5e'}>R$ 3,50</POText>
             </View>
 
             <View style={{flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
@@ -64,7 +65,7 @@ const navigation = useNavigation()
 
             <View style={{flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
               <POText size={16} weight={'Bold'}>Total:</POText>
-              <POText size={16} weight={'Bold'}>R$ 55,50</POText>
+              <POText size={16} weight={'Bold'}>R$ 13,40</POText>
             </View>
 
           </View>
@@ -75,8 +76,10 @@ const navigation = useNavigation()
             <View style={{flexDirection:'row', marginBottom:10, alignItems:'center',justifyContent:'space-between', height:90, borderWidth:2, borderColor:'#FF881D', paddingHorizontal:13, borderRadius:10}}>
               <View>
                 <POText textColor="#5e5e5e" size={14}>Cartão de crédito</POText>
-                <Image source={{uri:'https://cdn.discordapp.com/attachments/984814568725442600/1046457493892644954/3_21.png'}} 
-                    style={{width:50, height:45}}/>            
+                <View style={{margin:-10}}>
+                  <Image source={{uri:'https://cdn.discordapp.com/attachments/984814568725442600/1046457493892644954/3_21.png'}}
+                      style={{width:65, height:55}}/>
+                </View>           
               </View>  
               <POButton  styleBtn={'orange'} text={'Adicionar'} shadow={false} BtnWidth={100} BtnHeight={35} fontSize={14}  />
             </View>
@@ -84,8 +87,8 @@ const navigation = useNavigation()
             <View style={{flexDirection:'row', marginBottom:10, alignItems:'center',justifyContent:'space-between', height:90, borderWidth:2, borderColor:'#FF881D', paddingHorizontal:13, borderRadius:10}}>
               <View>
                 <POText textColor="#5e5e5e" size={14}>Dinheiro</POText>
-                <Image source={{uri:'https://cdn.discordapp.com/attachments/984814568725442600/1046452022943154296/money-dollar-6366.png'}} 
-                    style={{width:50, height:50}}/>            
+                <Image source={{uri:'https://cdn.discordapp.com/attachments/893932697473409026/1047064357042917446/img_452026.png'}} 
+                    style={{width:66, height:33}}/>            
               </View>  
               <POButton  styleBtn={'orange'} text={'Adicionar'} shadow={false} BtnWidth={100} BtnHeight={35} fontSize={14}  />
             </View>

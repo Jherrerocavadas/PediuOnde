@@ -98,16 +98,16 @@ export default function Home() {
                 <POButton
                   styleBtn={"white"}
                   text={"Pedir Agora"}
-                  BtnWidth={'35%'}
+                  BtnWidth={170}
                   BtnHeight={50}
-                  fontSize={14}
+                  fontSize={18}
                 />
                 <View style={{ width: 20 }}></View>
                 <POButton
                   text={"Encomendar"}
-                  BtnWidth={'35%'}
+                  BtnWidth={170}
                   BtnHeight={50}
-                  fontSize={14}
+                  fontSize={18}
                 />
               </View>
             </View>
@@ -143,7 +143,7 @@ export default function Home() {
                     >
                       <Image
                         source={{
-                          uri: "https://www.nigiloc.com/images/image-not-found.png",
+                          uri: "https://joliz.com.br/dicas/wp-content/uploads/2022/02/pexels-brent-keane-1702373-scaled.jpg",
                         }}
                         style={{
                           flex: 1,

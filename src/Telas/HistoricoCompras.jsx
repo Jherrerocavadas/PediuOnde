@@ -19,17 +19,10 @@ export default function HistoricoCompras(){
             
                 <BoxHistoricoCompras  
                     numPedido={123123} 
-                    fotoPedido={'https://www.nigiloc.com/images/image-not-found.png'}
-                    fotoVendedor={'https://www.nigiloc.com/images/image-not-found.png'}
+                    fotoPedido={'https://assets.unileversolutions.com/recipes-v2/67405.jpg'}
+                    fotoVendedor={'https://joliz.com.br/dicas/wp-content/uploads/2022/02/pexels-brent-keane-1702373-scaled.jpg'}
                     nomeVendedor={'Meire bolos'}
-                    descPedido={'Bolo de Cenoura, 1kg, cobertura de chocolate'} />
-                
-                <BoxHistoricoCompras  
-                    numPedido={123455} 
-                    fotoPedido={'https://www.nigiloc.com/images/image-not-found.png'}
-                    fotoVendedor={'https://www.nigiloc.com/images/image-not-found.png'}
-                    nomeVendedor={'Marcos bolos'}
-                    descPedido={'Bolo de Cenoura, 1kg, cobertura de chocolate'} />
+                    descPedido={'Bolo de Cenoura, Pedaço(300g)'} />
 
             </ScrollView>
 
