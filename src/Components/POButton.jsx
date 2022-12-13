@@ -1,19 +1,21 @@
 import React from "react";
-import {View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+
 
 export function POButton({
-  styleBtn, 
-  text, 
-  BtnWidth=180, 
-  BtnHeight=55, 
+  styleBtn,
+  text,
+  BtnWidth=180,
+  BtnHeight=55,
   fontSize=20,
-  shadow=true }){
+  shadow=true,
+  funcButton}){
 
     const shadowBtn = {
       elevation: 5,
       shadowColor: 'black'
     }
-  
+
   if(shadow) {
     var styledBtn = StyleSheet.create({
       height:BtnHeight,
@@ -59,15 +61,19 @@ export function POButton({
 
   if (styleBtn === 'white'){
     return (
-        <View style={{...whiteBtn}}>
+      <TouchableOpacity onPress={funcButton} style={{...whiteBtn}}>
+        <View>
           <Text style={fontStyle}>{text}</Text>
         </View>
+      </TouchableOpacity>
     );
   }
 
   return (
-      <View style={orangeBtn}>
+    <TouchableOpacity onPress={funcButton} style={orangeBtn}>
+      <View>
         <Text style={{ fontSize:fontSize, color:'white', fontFamily:'PoppinsRegular', marginTop:5}}>{text}</Text>
       </View>
+    </TouchableOpacity>
   );
 }
