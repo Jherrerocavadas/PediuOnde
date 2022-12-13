@@ -18,43 +18,43 @@ const styleEncomenda = StyleSheet.create({
     borderColor:'#FF881D'
 })
 
-export function ProductContainer({imageUrl, Title, Description='', Encomenda=false, navigaation} ){
+export function ProductContainer({imageUrl, Title, Description='', Encomenda=false, navigation} ){
 
     if (Description.length > 40) Description = Description.slice(0, 40) + '...'
 
     const containerStyle = {
-        width:205, 
-        height:185, 
-        borderColor:'#FF881D', 
-        borderWidth:1.5, 
-        borderRadius:10, 
+        width:205,
+        height:185,
+        borderColor:'#FF881D',
+        borderWidth:1.5,
+        borderRadius:10,
         overflow:'hidden',
         marginLeft:20
     }
 
     const containerImg = {
-        width:'100%', 
+        width:'100%',
         height:115
     }
 
     const textContainer = {
-        width:'100%', 
-        height:70, 
-        backgroundColor:'#FF881D', 
+        width:'100%',
+        height:70,
+        backgroundColor:'#FF881D',
         paddingHorizontal:5,
         paddingTop:5,
     }
 
     return(
-        <TouchableOpacity  onPress={ ()=>{ navigaation } }>
+        <TouchableOpacity  onPress={ ()=>{ navigation } }>
         <View style={containerStyle}>
             <View style={containerImg}>
-                {Encomenda ?                 
+                {Encomenda ?
                 <View style={styleEncomenda}>
                     <Text style={{fontSize:12, color:'white', fontFamily:'PoppinsBold'}}>Encomenda</Text>
                 </View> : <></>}
 
-                <Image source={{uri:imageUrl}} 
+                <Image source={{uri:imageUrl}}
                 style={{flex:1, width:null, height:null, resizeMode:'cover'}}/>
             </View>
 
@@ -68,17 +68,17 @@ export function ProductContainer({imageUrl, Title, Description='', Encomenda=fal
 }
 
 export function ProductContainerDetailed({imageUrl, Title, Description='', Encomenda=false}){
-    
+
     if (Description.length > 100) Description = Description.slice(0, 100) + '...'
 
     return(
         <View style={{width:'100%', height:110, borderWidth:2, borderColor:'#FF881D', borderRadius:10, overflow:'hidden', flexDirection:'row'}}>
             <View style={{height:'100%', aspectRatio:4/3}}>
-            {Encomenda ?                 
+            {Encomenda ?
                 <View style={styleEncomenda}>
                     <Text style={{fontSize:12, color:'white', fontFamily:'PoppinsBold'}}>Encomenda</Text>
                 </View> : <></>}
-                <Image source={{uri:imageUrl}} 
+                <Image source={{uri:imageUrl}}
                 style={{flex:1, width:null, height:null, resizeMode:'cover'}}/>
             </View>
             <View style={{width:'60%',height:'100%', paddingVertical:5, paddingHorizontal:10}}>
