@@ -1,16 +1,20 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import Categories from "../Components/home/Categories";
+import Products from "../Components/home/Products";
 import HorizontalScroll from "../Components/HorizontalScroll";
 import { POButton } from "../Components/POButton";
-import { ProductContainer } from "../Components/ProductContainer";
+// import { ProductContainer } from "../Components/ProductContainer";
 import SafeArea from "../Components/SafeArea";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
+
+
 export default function Home() {
   const navigation = useNavigation()
+  const location = "Carapicuiba, São Paulo"
   return (
     <ScrollView>
       <View style={{flex:1, backgroundColor:'white'}}>
@@ -31,7 +35,7 @@ export default function Home() {
                 marginTop: 15,
               }}
             >
-              Carapicuiba, São Paulo
+              {location}
             </Text>
             <MaterialIcons name="arrow-drop-down" size={50} color="#FF881D" />
           </View>
@@ -40,46 +44,16 @@ export default function Home() {
               marginVertical: 5,
             }}
           >
+
             <HorizontalScroll scrollTitle={"Categorias"}>
-              <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
-                texto={"Bolos"}
-              />
-              <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
-                texto={"Bolos"}
-              />
-              <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
-                texto={"Bolos"}
-              />
-              <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
-                texto={"Bolos"}
-              />
+                <Categories/>
             </HorizontalScroll>
+
           </View>
+
           <View style={{ marginVertical: 10 }}>
             <HorizontalScroll scrollTitle={"Destaques"}>
-        
-              <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <ProductContainer
-                  imageUrl={"https://www.nigiloc.com/images/image-not-found.png"}
-                  Title={"Not Title"}
-                  Description={"Not description"}/>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <ProductContainer
-                  imageUrl={"https://www.nigiloc.com/images/image-not-found.png"}
-                  Title={"Not Title"}
-                  Description={"Not description"}/>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <ProductContainer
-                  imageUrl={"https://www.nigiloc.com/images/image-not-found.png"}
-                  Title={"Not Title"}
-                  Description={"Not description"}/>
-              </TouchableOpacity>
+                <Products/>
             </HorizontalScroll>
           </View>
           <View style={{ paddingHorizontal: 20, overflow: "visible" }}>
