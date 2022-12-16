@@ -1,4 +1,5 @@
 import React from "react";
+
 import {View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export function POButton({
@@ -6,15 +7,16 @@ export function POButton({
   text, 
   setter,
   BtnWidth=180, 
-  BtnHeight=55, 
+  BtnHeight=55,
   fontSize=20,
-  shadow=true }){
+  shadow=true,
+  funcButton}){
 
     const shadowBtn = {
       elevation: 5,
       shadowColor: 'black'
     }
-  
+
   if(shadow) {
     var styledBtn = StyleSheet.create({
       height:BtnHeight,
@@ -76,5 +78,6 @@ export function POButton({
         } }>
         <Text style={{ fontSize:fontSize, color:'white', fontFamily:'PoppinsRegular', marginTop:5}}>{text}</Text>
       </TouchableOpacity>
+
   );
 }

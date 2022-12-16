@@ -1,13 +1,16 @@
 import React, {useState} from "react";
 import { View, Text, Image, TouchableOpacity, TouchableHighlight } from "react-native";
 import Categories from "../Components/home/Categories";
+import Products from "../Components/home/Products";
 import HorizontalScroll from "../Components/HorizontalScroll";
 import { POButton } from "../Components/POButton";
-import { ProductContainer } from "../Components/ProductContainer";
+// import { ProductContainer } from "../Components/ProductContainer";
 import SafeArea from "../Components/SafeArea";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+
+
 
 export default function Home() {
   const navigation = useNavigation()
@@ -16,7 +19,7 @@ export default function Home() {
 
   const [displayEncomenda, setDisplayEncomenda] = useState('flex')
   const [displayPAgora, setDisplayPAgora] = useState('flex')
-
+  const location = "Carapicuiba, São Paulo"
   return (
     <ScrollView>
       <View style={{flex:1, backgroundColor:'white'}}>
@@ -37,7 +40,7 @@ export default function Home() {
                 marginTop: 15,
               }}
             >
-              Carapicuiba, São Paulo
+              {location}
             </Text>
             <MaterialIcons name="arrow-drop-down" size={50} color="#FF881D" />
           </View>
@@ -46,36 +49,16 @@ export default function Home() {
               marginVertical: 5,
             }}
           >
+
             <HorizontalScroll scrollTitle={"Categorias"}>
-              <Categories
-                SaaS={"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"}
-                texto={"Bolos"}
-              />
+                <Categories/>
             </HorizontalScroll>
+
           </View>
+
           <View style={{ marginVertical: 10 }}>
             <HorizontalScroll scrollTitle={"Destaques"}>
-
-              <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <View style={{display:displayEncomenda}}>
-                  <ProductContainer
-                    imageUrl={"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqS4EbhiRWPpik9K0oT7EvL1Z0qlbRMAzk2Rq9ydGTsM1ze_kgBXk3Go7sqb5O2g0AEsjx8o4VDSkhFN7jkn42khiNErDSlsnt-IC-LmHhqplB8hTWYXD3rOmf4fT1Qs6_5K4LnCg69pVtUgIL0YLdfFowLQcCDrZx9nVlNl9Iws2khcKY1BF5Zv_P/s1500/bolo-de-pote-0.jpg"}
-                    Title={"Bolo de Pote"}
-                    Description={"Aquele bolo de pote pra matar a vontade de um docinho depois do almoço! Temos sabores de: Leite Ninho, Maracujá, Chocolate e Abacaxi."}
-                    Encomenda={true}/>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <View style={{display:displayPAgora}}>
-                  <ProductContainer
-                    imageUrl={'https://assets.unileversolutions.com/recipes-v2/67405.jpg'}
-                    Title={'Bolo de Cenoura'}
-                    Description={'Bolo de cenoura feito com itens frescos, ideal para um café da tarde!'}
-                    Encomenda={false}/>
-                </View>
-              </TouchableOpacity>
-              
+                <Products/>
             </HorizontalScroll>
           </View>
           <View style={{ paddingHorizontal: 20, overflow: "visible" }}>

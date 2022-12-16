@@ -9,7 +9,7 @@ export function POText({
     children,
     }) {
 
-    const [fontsLoaded] = useFonts({
+    let [fontsLoaded] = useFonts({
       PoppinsLight: require('../../assets/fonts/Poppins-Light.ttf'),
       PoppinsRegular: require('../../assets/fonts/Poppins-Regular.ttf'),
       PoppinsSemiBold: require('../../assets/fonts/Poppins-SemiBold.ttf'),
@@ -26,20 +26,18 @@ export function POText({
     }
 
     const styleText = {
-      fontFamily:`Poppins${weight}`, 
-      fontSize:size, 
+      fontFamily:`Poppins${weight}`,
+      fontSize:size,
       color:textColor,
       ...line
     }
-  
+
   return (
     <Text style={styleText}>{children}</Text>
   );
 }
 
-export function POTextLink({texto, link, 
-  navigation,
-  destiny}) {
+export function POTextLink({texto, link,funcLink}) {
   const styles = {
     container:
     {
@@ -60,7 +58,7 @@ export function POTextLink({texto, link,
   return (
       <View style={styles.container}>
       <Text style={styles.textStyle}>{texto} </Text>
-      <TouchableOpacity onPress={()=>{ navigation.navigate(destiny) }}>
+      <TouchableOpacity onPress={funcLink}>
           <Text style={[styles.textStyle, styles.textLink]}>{link}</Text>
       </TouchableOpacity>
       </View>
