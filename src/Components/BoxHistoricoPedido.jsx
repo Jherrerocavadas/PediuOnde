@@ -145,19 +145,21 @@ export default function BoxHistoricoCompras({fotoVendedor, nomeVendedor, numPedi
 
                     <View style={containerBtns}>
                         
-                        <View style={{ flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
+                        <View style={{ flexDirection:'row', width:'100%',alignItems:'center', justifyContent:'space-between'}}>
                             <POButton 
                                 text={'Pedir de Novo'} 
                                 BtnHeight={35} 
                                 fontSize={16}
                                 shadow={false}/>
                             
-                            <POButton 
-                                styleBtn={'white'} 
-                                BtnHeight={35} 
-                                text={'Ajuda'} 
-                                fontSize={16}
-                                shadow={false}/>                       
+                            <View style={{marginBottom:5}}>
+                                <POButton
+                                    styleBtn={'white'}
+                                    BtnHeight={35}
+                                    text={'Ajuda'}
+                                    fontSize={16}
+                                    shadow={false}/>
+                            </View>                    
                         </View>
                     </View>      
                 </View>          

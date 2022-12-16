@@ -1,9 +1,10 @@
 import React from "react";
-import {View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export function POButton({
   styleBtn, 
   text, 
+  setter,
   BtnWidth=180, 
   BtnHeight=55, 
   fontSize=20,
@@ -23,7 +24,7 @@ export function POButton({
       justifyContent: "center",
       color: 'black',
       backgroundColor:'white',
-      ...shadowBtn
+      ...shadowBtn,
     })
   } else{
     var styledBtn = StyleSheet.create({
@@ -41,7 +42,9 @@ export function POButton({
 
   const orangeBtn = {
     ...styledBtn,
-    backgroundColor: '#FF881D'
+    backgroundColor: '#FF881D',
+    borderWidth:2,
+    borderColor:'#FF881D'
   }
 
   const whiteBtn = {
@@ -59,15 +62,19 @@ export function POButton({
 
   if (styleBtn === 'white'){
     return (
-        <View style={{...whiteBtn}}>
+        <TouchableOpacity style={{...whiteBtn, marginTop:5}} onPress={ () => {setter()} }>
           <Text style={fontStyle}>{text}</Text>
-        </View>
+        </TouchableOpacity>
     );
   }
 
   return (
-      <View style={orangeBtn}>
+      <TouchableOpacity style={orangeBtn} onPress={ () => {
+        if (setter !== undefined){
+          setter()
+        }
+        } }>
         <Text style={{ fontSize:fontSize, color:'white', fontFamily:'PoppinsRegular', marginTop:5}}>{text}</Text>
-      </View>
+      </TouchableOpacity>
   );
 }

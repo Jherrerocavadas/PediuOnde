@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import React, {useState} from "react";
+import { View, Text, Image, TouchableOpacity, TouchableHighlight } from "react-native";
 import Categories from "../Components/home/Categories";
 import HorizontalScroll from "../Components/HorizontalScroll";
 import { POButton } from "../Components/POButton";
@@ -11,6 +11,12 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
   const navigation = useNavigation()
+  const [styleEncomenda, setStyleEncomenda] = useState('white')
+  const [stylePAgora, setStylePAgora] = useState('white')
+
+  const [displayEncomenda, setDisplayEncomenda] = useState('flex')
+  const [displayPAgora, setDisplayPAgora] = useState('flex')
+
   return (
     <ScrollView>
       <View style={{flex:1, backgroundColor:'white'}}>
@@ -42,44 +48,34 @@ export default function Home() {
           >
             <HorizontalScroll scrollTitle={"Categorias"}>
               <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
-                texto={"Bolos"}
-              />
-              <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
-                texto={"Bolos"}
-              />
-              <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
-                texto={"Bolos"}
-              />
-              <Categories
-                SaaS={"https://www.nigiloc.com/images/image-not-found.png"}
+                SaaS={"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"}
                 texto={"Bolos"}
               />
             </HorizontalScroll>
           </View>
           <View style={{ marginVertical: 10 }}>
             <HorizontalScroll scrollTitle={"Destaques"}>
-        
+
               <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <ProductContainer
-                  imageUrl={"https://www.nigiloc.com/images/image-not-found.png"}
-                  Title={"Not Title"}
-                  Description={"Not description"}/>
+                <View style={{display:displayEncomenda}}>
+                  <ProductContainer
+                    imageUrl={"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqS4EbhiRWPpik9K0oT7EvL1Z0qlbRMAzk2Rq9ydGTsM1ze_kgBXk3Go7sqb5O2g0AEsjx8o4VDSkhFN7jkn42khiNErDSlsnt-IC-LmHhqplB8hTWYXD3rOmf4fT1Qs6_5K4LnCg69pVtUgIL0YLdfFowLQcCDrZx9nVlNl9Iws2khcKY1BF5Zv_P/s1500/bolo-de-pote-0.jpg"}
+                    Title={"Bolo de Pote"}
+                    Description={"Aquele bolo de pote pra matar a vontade de um docinho depois do almoço! Temos sabores de: Leite Ninho, Maracujá, Chocolate e Abacaxi."}
+                    Encomenda={true}/>
+                </View>
               </TouchableOpacity>
+
               <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <ProductContainer
-                  imageUrl={"https://www.nigiloc.com/images/image-not-found.png"}
-                  Title={"Not Title"}
-                  Description={"Not description"}/>
+                <View style={{display:displayPAgora}}>
+                  <ProductContainer
+                    imageUrl={'https://assets.unileversolutions.com/recipes-v2/67405.jpg'}
+                    Title={'Bolo de Cenoura'}
+                    Description={'Bolo de cenoura feito com itens frescos, ideal para um café da tarde!'}
+                    Encomenda={false}/>
+                </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={()=>{ navigation.navigate('PagProduto') }}>
-                <ProductContainer
-                  imageUrl={"https://www.nigiloc.com/images/image-not-found.png"}
-                  Title={"Not Title"}
-                  Description={"Not description"}/>
-              </TouchableOpacity>
+              
             </HorizontalScroll>
           </View>
           <View style={{ paddingHorizontal: 20, overflow: "visible" }}>
@@ -96,25 +92,53 @@ export default function Home() {
                 }}
               >
                 <POButton
-                  styleBtn={"white"}
                   text={"Pedir Agora"}
                   BtnWidth={170}
                   BtnHeight={50}
                   fontSize={18}
+                  setter={()=>{
+                    if(stylePAgora == 'orange'){
+                      setStylePAgora('white')
+                      setDisplayEncomenda('flex')
+                      console.log('fooi')
+
+                    }
+                    else{
+                      setStylePAgora('orange')
+                      setDisplayEncomenda('none')
+                      setDisplayPAgora('flex')
+                      setStyleEncomenda('white')
+                    }
+                  }}
+                  styleBtn={stylePAgora}
                 />
                 <View style={{ width: 20 }}></View>
-                <POButton
-                  text={"Encomendar"}
-                  BtnWidth={170}
-                  BtnHeight={50}
-                  fontSize={18}
-                />
+                  <POButton
+                    text={"Encomendar"}
+                    BtnWidth={170}
+                    BtnHeight={50}
+                    fontSize={18}
+                    setter={()=>{
+                      if(styleEncomenda == 'orange'){
+                        setStyleEncomenda('white')
+                        setDisplayPAgora('flex')
+                      }
+                      else{
+                        setStylePAgora('white')
+                        setStyleEncomenda('orange')
+
+                        setDisplayPAgora('none')
+                        setDisplayEncomenda('flex')
+                      }
+                    }}
+                    styleBtn={styleEncomenda}
+                  />
               </View>
             </View>
             <View style={{ marginVertical: 10 }}>
               <Text style={{ fontFamily: "PoppinsBold", fontSize: 18 }}>Lojas</Text>
-              <TouchableOpacity onPress={()=>{ navigation.navigate('Loja') }}>
-                <View
+              
+                <TouchableOpacity onPress={()=>{ navigation.navigate('Loja') }}
                   style={{
                     backgroundColor: "white",
                     height: 65,
@@ -127,8 +151,7 @@ export default function Home() {
                     alignItems: "center",
                     padding: 10,
                     justifyContent: "space-between",
-                  }}
-                >
+                  }}>
                   <View style={{ flexDirection: "row", alignItems: "center", backgroundColor:'white'}}>
                     <View
                       style={{
@@ -189,8 +212,7 @@ export default function Home() {
                       4,7
                     </Text>
                   </View>
-                </View>
-              </TouchableOpacity>
+                </TouchableOpacity>
             </View>
           </View>
         </SafeArea>
