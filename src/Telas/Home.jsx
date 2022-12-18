@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import React, {useState} from "react";
+import { View, Text, Image, TouchableOpacity, TouchableHighlight } from "react-native";
 import Categories from "../Components/home/Categories";
 import Products from "../Components/home/Products";
 import HorizontalScroll from "../Components/HorizontalScroll";
@@ -14,6 +14,11 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
   const navigation = useNavigation()
+  const [styleEncomenda, setStyleEncomenda] = useState('white')
+  const [stylePAgora, setStylePAgora] = useState('white')
+
+  const [displayEncomenda, setDisplayEncomenda] = useState('flex')
+  const [displayPAgora, setDisplayPAgora] = useState('flex')
   const location = "Carapicuiba, São Paulo"
   return (
     <ScrollView>
@@ -70,25 +75,53 @@ export default function Home() {
                 }}
               >
                 <POButton
-                  styleBtn={"white"}
                   text={"Pedir Agora"}
                   BtnWidth={170}
                   BtnHeight={50}
                   fontSize={18}
+                  setter={()=>{
+                    if(stylePAgora == 'orange'){
+                      setStylePAgora('white')
+                      setDisplayEncomenda('flex')
+                      console.log('fooi')
+
+                    }
+                    else{
+                      setStylePAgora('orange')
+                      setDisplayEncomenda('none')
+                      setDisplayPAgora('flex')
+                      setStyleEncomenda('white')
+                    }
+                  }}
+                  styleBtn={stylePAgora}
                 />
                 <View style={{ width: 20 }}></View>
-                <POButton
-                  text={"Encomendar"}
-                  BtnWidth={170}
-                  BtnHeight={50}
-                  fontSize={18}
-                />
+                  <POButton
+                    text={"Encomendar"}
+                    BtnWidth={170}
+                    BtnHeight={50}
+                    fontSize={18}
+                    setter={()=>{
+                      if(styleEncomenda == 'orange'){
+                        setStyleEncomenda('white')
+                        setDisplayPAgora('flex')
+                      }
+                      else{
+                        setStylePAgora('white')
+                        setStyleEncomenda('orange')
+
+                        setDisplayPAgora('none')
+                        setDisplayEncomenda('flex')
+                      }
+                    }}
+                    styleBtn={styleEncomenda}
+                  />
               </View>
             </View>
             <View style={{ marginVertical: 10 }}>
               <Text style={{ fontFamily: "PoppinsBold", fontSize: 18 }}>Lojas</Text>
-              <TouchableOpacity onPress={()=>{ navigation.navigate('Loja') }}>
-                <View
+              
+                <TouchableOpacity onPress={()=>{ navigation.navigate('Loja') }}
                   style={{
                     backgroundColor: "white",
                     height: 65,
@@ -101,8 +134,7 @@ export default function Home() {
                     alignItems: "center",
                     padding: 10,
                     justifyContent: "space-between",
-                  }}
-                >
+                  }}>
                   <View style={{ flexDirection: "row", alignItems: "center", backgroundColor:'white'}}>
                     <View
                       style={{
@@ -163,8 +195,7 @@ export default function Home() {
                       4,7
                     </Text>
                   </View>
-                </View>
-              </TouchableOpacity>
+                </TouchableOpacity>
             </View>
           </View>
         </SafeArea>
